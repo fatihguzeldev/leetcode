@@ -5,14 +5,14 @@
  */
 
 // @lc code=start
-function twoSum(nums: number[], target: number): number[] {
+function twoSum(nums: number[], target: number): number[] | undefined {
   const indicies = new Map<number, number>();
 
   for (let i = 0; i < nums.length; i++) {
     const pair = target - nums[i];
 
     if (indicies.has(pair)) {
-      return [indicies.get(pair), i];
+      return [indicies.get(pair)!, i];
     }
 
     indicies.set(nums[i], i);
