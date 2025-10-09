@@ -25,7 +25,7 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
   const leftMax = Math.max(nums1.slice(0, i).at(-1), nums2.slice(0, j).at(-1));
   const rightMin = Math.min(nums1.slice(i).at(0), nums2.slice(j).at(0));
 
-  if (nums1.length + (nums2.length % 2) === 0) {
+  if ((nums1.length + nums2.length) % 2 === 0) {
     return (leftMax + rightMin) / 2;
   } else {
     return leftMax;
