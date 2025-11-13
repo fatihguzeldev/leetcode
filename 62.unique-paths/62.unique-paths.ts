@@ -6,16 +6,14 @@
 
 // @lc code=start
 function uniquePaths(m: number, n: number): number {
-  const factorial = (n: number) => {
-    if (n === 0 || n === 1) {
-      return 1;
+  const dp = Array.from({ length: m }, () => Array(n).fill(1));
+
+  for (let i = m - 2; i >= 0; i--) {
+    for (let j = n - 2; j >= 0; j--) {
+      dp[i][j] = dp[i + 1][j] + dp[i][j + 1];
     }
+  }
 
-    return n * factorial(n - 1);
-  };
-
-  return Math.round(
-    factorial(m + n - 2) / (factorial(m - 1) * factorial(n - 1))
-  );
+  return dp[0][0];
 }
 // @lc code=end
