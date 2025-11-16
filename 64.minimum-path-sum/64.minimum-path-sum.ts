@@ -16,9 +16,9 @@ function minPathSum(grid: number[][]): number {
       }
 
       const top = i > 0 ? grid[i - 1][j] : Infinity;
-      const right = j > 0 ? grid[i][j - 1] : Infinity;
+      const left = j > 0 ? grid[i][j - 1] : Infinity;
 
-      grid[i][j] += Math.min(top, right);
+      grid[i][j] += Math.min(top, left);
     }
   }
 
