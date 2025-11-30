@@ -25,13 +25,15 @@ function minDistance(word1: string, word2: string): number {
     for (let j = 1; j <= n; j++) {
       if (word1[i - 1] === word2[j - 1]) {
         dp[i][j] = dp[i - 1][j - 1];
-      } else {
-        dp[i][j] = Math.min(
-          dp[i][j - 1] + 1,
-          dp[i - 1][j] + 1,
-          dp[i - 1][j - 1] + 1
-        );
+
+        continue;
       }
+
+      dp[i][j] = Math.min(
+        dp[i][j - 1] + 1,
+        dp[i - 1][j] + 1,
+        dp[i - 1][j - 1] + 1
+      );
     }
   }
 
